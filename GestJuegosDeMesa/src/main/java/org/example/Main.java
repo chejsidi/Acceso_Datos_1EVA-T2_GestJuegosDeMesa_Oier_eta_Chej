@@ -1,6 +1,7 @@
 package org.example;
 
 import org.example.services.AsociacionService;
+import org.example.services.JuegoService;
 import org.example.services.SociaService;
 import org.example.utils.DatabaseConnection;
 import org.example.utils.Lector;
@@ -11,6 +12,7 @@ public class Main {
     private static final Lector lector = new Lector();
     private static final AsociacionService asociacionService = new AsociacionService();
     private static final SociaService sociaService = new SociaService();
+    private static final JuegoService juegoService = new JuegoService();
 
     /** Una opción de menú que puede fallar. */
     private interface Accion {
@@ -40,7 +42,8 @@ public class Main {
                     "Metadatos de la base de datos");
             switch (opcion) {
                 case 1 -> menuSocias();
-                case 2, 3, 5, 6 -> System.out.println("Pendiente de implementar");
+                case 2 -> menuJuegos();
+                case 3, 5, 6 -> System.out.println("Pendiente de implementar");
                 case 4 -> menuAsociacion();
                 case 0 -> System.out.println("¡Hasta luego!");
                 default -> System.out.println("Opción no válida");
@@ -59,12 +62,33 @@ public class Main {
                     "Listar socias",
                     "Alta de socia",
                     "Modificar socia",
-                    "Baja de socia");
+                    "Baja de socia",
+                    "Ver juegos de una socia");
             switch (opcion) {
                 case 1 -> ejecutar(sociaService::listar);
                 case 2 -> ejecutar(sociaService::alta);
                 case 3 -> ejecutar(sociaService::modificar);
                 case 4 -> ejecutar(sociaService::baja);
+                case 5 -> ejecutar(juegoService::juegosDeSocia);
+                case 0 -> { }
+                default -> System.out.println("Opción no válida");
+            }
+        } while (opcion != 0);
+    }
+
+    private static void menuJuegos() {
+        int opcion;
+        do {
+            opcion = elegirOpcion("Juegos", "Volver",
+                    "Listar juegos",
+                    "Alta de juego",
+                    "Modificar juego",
+                    "Baja de juego");
+            switch (opcion) {
+                case 1 -> ejecutar(juegoService::listar);
+                case 2 -> ejecutar(juegoService::alta);
+                case 3 -> ejecutar(juegoService::modificar);
+                case 4 -> ejecutar(juegoService::baja);
                 case 0 -> { }
                 default -> System.out.println("Opción no válida");
             }
