@@ -43,6 +43,6 @@ public class Socia {
     @Override
     public String toString() {
         return "[" + id + "] " + nombre + " " + apellidos + " | " + documento + " | " + edad + " años | Tel: "
-                + telefono + " | " + email;
+                + (telefono == null ? "-" : telefono) + " | Email: " + (email == null ? "-" : email);
     }
 }

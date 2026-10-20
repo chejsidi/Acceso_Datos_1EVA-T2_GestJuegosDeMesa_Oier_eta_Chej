@@ -41,7 +41,7 @@ public class Asociacion {
     public String toString() {
         return razonSocial + " (CIF " + cif + ")\n" +
                 direccion + "\n" +
-                "Tel: " + telefono + " | Email: " + email + "\n" +
+                "Tel: " + (telefono == null ? "-" : telefono) + " | Email: " + (email == null ? "-" : email) + "\n" +
                 "Abierta desde: " + fechaApertura;
     }
 }
