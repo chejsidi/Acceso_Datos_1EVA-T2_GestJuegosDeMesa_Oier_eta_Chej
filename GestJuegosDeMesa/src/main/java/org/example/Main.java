@@ -2,6 +2,7 @@ package org.example;
 
 import org.example.services.AsociacionService;
 import org.example.services.JuegoService;
+import org.example.services.PartidaService;
 import org.example.services.SociaService;
 import org.example.utils.DatabaseConnection;
 import org.example.utils.Lector;
@@ -13,6 +14,7 @@ public class Main {
     private static final AsociacionService asociacionService = new AsociacionService();
     private static final SociaService sociaService = new SociaService();
     private static final JuegoService juegoService = new JuegoService();
+    private static final PartidaService partidaService = new PartidaService();
 
     /** Una opción de menú que puede fallar. */
     private interface Accion {
@@ -43,7 +45,8 @@ public class Main {
             switch (opcion) {
                 case 1 -> menuSocias();
                 case 2 -> menuJuegos();
-                case 3, 5, 6 -> System.out.println("Pendiente de implementar");
+                case 3 -> menuPartidas();
+                case 5, 6 -> System.out.println("Pendiente de implementar");
                 case 4 -> menuAsociacion();
                 case 0 -> System.out.println("¡Hasta luego!");
                 default -> System.out.println("Opción no válida");
@@ -63,13 +66,15 @@ public class Main {
                     "Alta de socia",
                     "Modificar socia",
                     "Baja de socia",
-                    "Ver juegos de una socia");
+                    "Ver juegos de una socia",
+                    "Ver partidas de una socia");
             switch (opcion) {
                 case 1 -> ejecutar(sociaService::listar);
                 case 2 -> ejecutar(sociaService::alta);
                 case 3 -> ejecutar(sociaService::modificar);
                 case 4 -> ejecutar(sociaService::baja);
                 case 5 -> ejecutar(juegoService::juegosDeSocia);
+                case 6 -> ejecutar(partidaService::partidasDeSocia);
                 case 0 -> { }
                 default -> System.out.println("Opción no válida");
             }
@@ -89,6 +94,31 @@ public class Main {
                 case 2 -> ejecutar(juegoService::alta);
                 case 3 -> ejecutar(juegoService::modificar);
                 case 4 -> ejecutar(juegoService::baja);
+                case 0 -> { }
+                default -> System.out.println("Opción no válida");
+            }
+        } while (opcion != 0);
+    }
+
+    private static void menuPartidas() {
+        int opcion;
+        do {
+            opcion = elegirOpcion("Partidas", "Volver",
+                    "Listar partidas e inscritas",
+                    "Alta de partida",
+                    "Modificar partida",
+                    "Borrar partida",
+                    "Apuntarse a una partida",
+                    "Quitar una jugadora de una partida",
+                    "Registrar ganadoras");
+            switch (opcion) {
+                case 1 -> ejecutar(partidaService::listar);
+                case 2 -> ejecutar(partidaService::alta);
+                case 3 -> ejecutar(partidaService::modificar);
+                case 4 -> ejecutar(partidaService::baja);
+                case 5 -> ejecutar(partidaService::apuntarse);
+                case 6 -> ejecutar(partidaService::quitarJugadora);
+                case 7 -> ejecutar(partidaService::registrarGanadoras);
                 case 0 -> { }
                 default -> System.out.println("Opción no válida");
             }

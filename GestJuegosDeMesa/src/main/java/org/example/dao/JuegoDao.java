@@ -18,7 +18,7 @@ public class JuegoDao {
     /**
      * Juego con los datos de su propietaria. LEFT JOIN porque si el juego es de la asociación
      * no tiene socia (socia_id es NULL). Las columnas de la socia llevan alias s_ para no
-     * confundirse con las del juego.
+     * confundirse con las del juego (las dos tablas tienen "id" y "nombre").
      */
     public static final String SELECT_JUEGOS = "select j.*, s.documento as s_documento, s.nombre as s_nombre, "
             + "s.apellidos as s_apellidos, s.telefono as s_telefono, s.edad as s_edad, s.email as s_email "
@@ -37,6 +37,12 @@ public class JuegoDao {
     /** Juego activo con ese id, o null si no existe o está dado de baja. */
     public Juego buscarPorId(int id) throws SQLException {
         List<Juego> juegos = consultar(SELECT_JUEGOS + "where j.eliminado = false and j.id = ?", id);
+        return juegos.isEmpty() ? null : juegos.get(0);
+    }
+
+    /** Juego con ese id aunque esté dado de baja (para mostrar partidas antiguas), o null si no existe. */
+    public Juego buscarPorIdConBajas(int id) throws SQLException {
+        List<Juego> juegos = consultar(SELECT_JUEGOS + "where j.id = ?", id);
         return juegos.isEmpty() ? null : juegos.get(0);
     }
 
@@ -78,7 +84,7 @@ public class JuegoDao {
         }
     }
 
-    /** El juego deja de aparecer, pero las partidas pasadas siguen apuntando a él. */
+    /** Baja lógica: el juego deja de aparecer, pero las partidas pasadas siguen apuntando a él. */
     public void darDeBaja(int id) throws SQLException {
         try (PreparedStatement ps = conexion().prepareStatement("update juegos set eliminado = true where id = ?")) {
             ps.setInt(1, id);
@@ -122,7 +128,7 @@ public class JuegoDao {
         }
     }
 
-    /** Convierte la fila actual en un Juego. */
+    /** Convierte la fila actual (con las columnas de SELECT_JUEGOS) en un Juego. */
     public static Juego crearJuego(ResultSet rs) throws SQLException {
         Socia propietaria = null;
         int sociaId = rs.getInt("socia_id");
