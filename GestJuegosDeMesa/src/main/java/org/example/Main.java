@@ -3,6 +3,7 @@ package org.example;
 import org.example.services.AsociacionService;
 import org.example.services.ExportacionService;
 import org.example.services.JuegoService;
+import org.example.services.MetadatosService;
 import org.example.services.PartidaService;
 import org.example.services.SociaService;
 import org.example.utils.DatabaseConnection;
@@ -17,6 +18,7 @@ public class Main {
     private static final JuegoService juegoService = new JuegoService();
     private static final PartidaService partidaService = new PartidaService();
     private static final ExportacionService exportacionService = new ExportacionService();
+    private static final MetadatosService metadatosService = new MetadatosService();
 
     /** Una opción de menú que puede fallar. */
     private interface Accion {
@@ -49,7 +51,7 @@ public class Main {
                 case 2 -> menuJuegos();
                 case 3 -> menuPartidas();
                 case 5 -> menuExportar();
-                case 6 -> System.out.println("Pendiente de implementar");
+                case 6 -> menuMetadatos();
                 case 4 -> menuAsociacion();
                 case 0 -> System.out.println("¡Hasta luego!");
                 default -> System.out.println("Opción no válida");
@@ -141,6 +143,21 @@ public class Main {
                 case 2 -> ejecutar(exportacionService::exportarJuegos);
                 case 3 -> ejecutar(exportacionService::exportarPartidas);
                 case 4 -> ejecutar(exportacionService::exportarTodo);
+                case 0 -> { }
+                default -> System.out.println("Opción no válida");
+            }
+        } while (opcion != 0);
+    }
+
+    private static void menuMetadatos() {
+        int opcion;
+        do {
+            opcion = elegirOpcion("Metadatos de la base de datos", "Volver",
+                    "Ver metadatos",
+                    "Exportar metadatos (XML y JSON)");
+            switch (opcion) {
+                case 1 -> ejecutar(metadatosService::mostrar);
+                case 2 -> ejecutar(metadatosService::exportar);
                 case 0 -> { }
                 default -> System.out.println("Opción no válida");
             }

@@ -1,0 +1,333 @@
+{
+  "nombre": "practica",
+  "sgbd": "MariaDB",
+  "versionSgbd": "11.4.13-MariaDB-ubu2404",
+  "driver": "MariaDB Connector/J",
+  "versionDriver": "3.5.1",
+  "url": "jdbc:mariadb://localhost/practica?user\u003droot\u0026password\u003d***",
+  "usuario": "root",
+  "tablas": [
+    {
+      "esquema": "practica",
+      "nombre": "asociacion",
+      "clavePrimaria": [
+        "id"
+      ],
+      "columnas": [
+        {
+          "nombre": "id",
+          "tipo": "INT",
+          "tamano": 10,
+          "nula": false,
+          "autoincremental": false
+        },
+        {
+          "nombre": "razon_social",
+          "tipo": "VARCHAR",
+          "tamano": 100,
+          "nula": false,
+          "autoincremental": false
+        },
+        {
+          "nombre": "cif",
+          "tipo": "VARCHAR",
+          "tamano": 9,
+          "nula": false,
+          "autoincremental": false
+        },
+        {
+          "nombre": "direccion",
+          "tipo": "VARCHAR",
+          "tamano": 150,
+          "nula": false,
+          "autoincremental": false
+        },
+        {
+          "nombre": "telefono",
+          "tipo": "VARCHAR",
+          "tamano": 15,
+          "nula": true,
+          "autoincremental": false
+        },
+        {
+          "nombre": "email",
+          "tipo": "VARCHAR",
+          "tamano": 100,
+          "nula": true,
+          "autoincremental": false
+        },
+        {
+          "nombre": "fecha_apertura",
+          "tipo": "DATE",
+          "tamano": 10,
+          "nula": false,
+          "autoincremental": false
+        }
+      ]
+    },
+    {
+      "esquema": "practica",
+      "nombre": "juegos",
+      "clavePrimaria": [
+        "id"
+      ],
+      "columnas": [
+        {
+          "nombre": "id",
+          "tipo": "INT",
+          "tamano": 10,
+          "nula": false,
+          "autoincremental": true
+        },
+        {
+          "nombre": "nombre",
+          "tipo": "VARCHAR",
+          "tamano": 100,
+          "nula": false,
+          "autoincremental": false
+        },
+        {
+          "nombre": "autores",
+          "tipo": "VARCHAR",
+          "tamano": 150,
+          "nula": false,
+          "autoincremental": false
+        },
+        {
+          "nombre": "descripcion",
+          "tipo": "VARCHAR",
+          "tamano": 500,
+          "nula": true,
+          "autoincremental": false
+        },
+        {
+          "nombre": "min_jugadores",
+          "tipo": "INT",
+          "tamano": 10,
+          "nula": false,
+          "autoincremental": false
+        },
+        {
+          "nombre": "max_jugadores",
+          "tipo": "INT",
+          "tamano": 10,
+          "nula": false,
+          "autoincremental": false
+        },
+        {
+          "nombre": "duracion",
+          "tipo": "INT",
+          "tamano": 10,
+          "nula": false,
+          "autoincremental": false
+        },
+        {
+          "nombre": "tematica",
+          "tipo": "VARCHAR",
+          "tamano": 50,
+          "nula": false,
+          "autoincremental": false
+        },
+        {
+          "nombre": "tipo",
+          "tipo": "ENUM",
+          "tamano": 11,
+          "nula": false,
+          "autoincremental": false
+        },
+        {
+          "nombre": "ubicacion",
+          "tipo": "VARCHAR",
+          "tamano": 100,
+          "nula": false,
+          "autoincremental": false
+        },
+        {
+          "nombre": "estado",
+          "tipo": "ENUM",
+          "tamano": 13,
+          "nula": false,
+          "autoincremental": false,
+          "valorPorDefecto": "\u0027DISPONIBLE\u0027"
+        },
+        {
+          "nombre": "socia_id",
+          "tipo": "INT",
+          "tamano": 10,
+          "nula": true,
+          "autoincremental": false
+        },
+        {
+          "nombre": "fecha_alta",
+          "tipo": "DATE",
+          "tamano": 10,
+          "nula": false,
+          "autoincremental": false
+        },
+        {
+          "nombre": "eliminado",
+          "tipo": "BOOLEAN",
+          "tamano": 3,
+          "nula": false,
+          "autoincremental": false,
+          "valorPorDefecto": "0"
+        }
+      ]
+    },
+    {
+      "esquema": "practica",
+      "nombre": "partidas",
+      "clavePrimaria": [
+        "id"
+      ],
+      "columnas": [
+        {
+          "nombre": "id",
+          "tipo": "INT",
+          "tamano": 10,
+          "nula": false,
+          "autoincremental": true
+        },
+        {
+          "nombre": "juego_id",
+          "tipo": "INT",
+          "tamano": 10,
+          "nula": false,
+          "autoincremental": false
+        },
+        {
+          "nombre": "fecha",
+          "tipo": "DATE",
+          "tamano": 10,
+          "nula": false,
+          "autoincremental": false
+        },
+        {
+          "nombre": "hora",
+          "tipo": "TIME",
+          "tamano": 10,
+          "nula": false,
+          "autoincremental": false
+        },
+        {
+          "nombre": "jugadoras_deseadas",
+          "tipo": "INT",
+          "tamano": 10,
+          "nula": false,
+          "autoincremental": false
+        }
+      ]
+    },
+    {
+      "esquema": "practica",
+      "nombre": "partida_jugadoras",
+      "clavePrimaria": [
+        "id"
+      ],
+      "columnas": [
+        {
+          "nombre": "id",
+          "tipo": "INT",
+          "tamano": 10,
+          "nula": false,
+          "autoincremental": true
+        },
+        {
+          "nombre": "partida_id",
+          "tipo": "INT",
+          "tamano": 10,
+          "nula": false,
+          "autoincremental": false
+        },
+        {
+          "nombre": "socia_id",
+          "tipo": "INT",
+          "tamano": 10,
+          "nula": true,
+          "autoincremental": false
+        },
+        {
+          "nombre": "invitada",
+          "tipo": "VARCHAR",
+          "tamano": 100,
+          "nula": true,
+          "autoincremental": false
+        },
+        {
+          "nombre": "ganadora",
+          "tipo": "BOOLEAN",
+          "tamano": 3,
+          "nula": false,
+          "autoincremental": false,
+          "valorPorDefecto": "0"
+        }
+      ]
+    },
+    {
+      "esquema": "practica",
+      "nombre": "socias",
+      "clavePrimaria": [
+        "id"
+      ],
+      "columnas": [
+        {
+          "nombre": "id",
+          "tipo": "INT",
+          "tamano": 10,
+          "nula": false,
+          "autoincremental": true
+        },
+        {
+          "nombre": "documento",
+          "tipo": "VARCHAR",
+          "tamano": 20,
+          "nula": false,
+          "autoincremental": false
+        },
+        {
+          "nombre": "nombre",
+          "tipo": "VARCHAR",
+          "tamano": 50,
+          "nula": false,
+          "autoincremental": false
+        },
+        {
+          "nombre": "apellidos",
+          "tipo": "VARCHAR",
+          "tamano": 100,
+          "nula": false,
+          "autoincremental": false
+        },
+        {
+          "nombre": "telefono",
+          "tipo": "VARCHAR",
+          "tamano": 15,
+          "nula": true,
+          "autoincremental": false
+        },
+        {
+          "nombre": "edad",
+          "tipo": "INT",
+          "tamano": 10,
+          "nula": false,
+          "autoincremental": false
+        },
+        {
+          "nombre": "email",
+          "tipo": "VARCHAR",
+          "tamano": 100,
+          "nula": true,
+          "autoincremental": false
+        },
+        {
+          "nombre": "eliminada",
+          "tipo": "BOOLEAN",
+          "tamano": 3,
+          "nula": false,
+          "autoincremental": false,
+          "valorPorDefecto": "0"
+        }
+      ]
+    }
+  ]
+}

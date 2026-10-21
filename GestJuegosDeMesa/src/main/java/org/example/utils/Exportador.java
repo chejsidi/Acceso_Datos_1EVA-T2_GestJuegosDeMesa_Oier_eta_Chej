@@ -5,6 +5,9 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonPrimitive;
 import com.google.gson.JsonSerializer;
 import com.thoughtworks.xstream.XStream;
+import org.example.models.InfoBaseDatos;
+import org.example.models.InfoColumna;
+import org.example.models.InfoTabla;
 import org.example.models.Juego;
 import org.example.models.Jugadora;
 import org.example.models.Partida;
@@ -34,21 +37,37 @@ public class Exportador {
                     (JsonSerializer<LocalTime>) (hora, tipo, contexto) -> new JsonPrimitive(hora.toString()))
             .create();
 
-    /** Crea exportaciones/[nombre].xml. etiquetaLista es la etiqueta raíz (por ejemplo "socias"). */
+    /** Crea exportaciones/[nombre].xml con una lista. etiquetaLista es la etiqueta raíz (por ejemplo "socias"). */
     public String exportarXml(List<?> lista, String etiquetaLista, String nombre) throws IOException {
-        XStream xstream = new XStream();
-        xstream.setMode(XStream.NO_REFERENCES);  // repite los datos en vez de usar referencias internas
+        XStream xstream = crearXStream();
         // List.class y no ArrayList.class: XStream trata ArrayList como "la List por defecto"
         xstream.alias(etiquetaLista, List.class);
+        return escribirXml(xstream, new ArrayList<>(lista), nombre);
+    }
+
+    /** Crea exportaciones/[nombre].xml con un único objeto (por ejemplo, los metadatos). */
+    public String exportarXml(Object datos, String nombre) throws IOException {
+        return escribirXml(crearXStream(), datos, nombre);
+    }
+
+    private XStream crearXStream() {
+        XStream xstream = new XStream();
+        xstream.setMode(XStream.NO_REFERENCES);  // repite los datos en vez de usar referencias internas
         xstream.alias("socia", Socia.class);
         xstream.alias("juego", Juego.class);
         xstream.alias("partida", Partida.class);
         xstream.alias("jugadora", Jugadora.class);
+        xstream.alias("baseDatos", InfoBaseDatos.class);
+        xstream.alias("tabla", InfoTabla.class);
+        xstream.alias("columna", InfoColumna.class);
+        return xstream;
+    }
 
+    private String escribirXml(XStream xstream, Object datos, String nombre) throws IOException {
         File fichero = crearFichero(nombre + ".xml");
         try (Writer writer = new OutputStreamWriter(new FileOutputStream(fichero), StandardCharsets.UTF_8)) {
             writer.write("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n");
-            xstream.toXML(new ArrayList<>(lista), writer);
+            xstream.toXML(datos, writer);
         }
         return fichero.getPath();
     }
