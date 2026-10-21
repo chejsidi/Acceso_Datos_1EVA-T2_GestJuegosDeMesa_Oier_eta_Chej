@@ -12,6 +12,9 @@ public class Partida {
     private LocalTime hora;
     private int jugadorasDeseadas;  // dentro del rango del juego
     private List<Jugadora> jugadoras = new ArrayList<>();
+    // No se guarda en la BBDD: se recalcula cada vez que cambian las jugadoras o las deseadas.
+    // Es un atributo (y no solo un método) para que salga también en los ficheros XML y JSON.
+    private int plazasLibres;
 
     public Partida(int id, Juego juego, LocalDate fecha, LocalTime hora, int jugadorasDeseadas) {
         this.id = id;
@@ -19,6 +22,7 @@ public class Partida {
         this.fecha = fecha;
         this.hora = hora;
         this.jugadorasDeseadas = jugadorasDeseadas;
+        recalcularPlazasLibres();
     }
 
     public int getId() { return id; }
@@ -34,14 +38,21 @@ public class Partida {
     public void setHora(LocalTime hora) { this.hora = hora; }
 
     public int getJugadorasDeseadas() { return jugadorasDeseadas; }
-    public void setJugadorasDeseadas(int jugadorasDeseadas) { this.jugadorasDeseadas = jugadorasDeseadas; }
+    public void setJugadorasDeseadas(int jugadorasDeseadas) {
+        this.jugadorasDeseadas = jugadorasDeseadas;
+        recalcularPlazasLibres();
+    }
 
     public List<Jugadora> getJugadoras() { return jugadoras; }
-    public void setJugadoras(List<Jugadora> jugadoras) { this.jugadoras = jugadoras; }
+    public void setJugadoras(List<Jugadora> jugadoras) {
+        this.jugadoras = jugadoras;
+        recalcularPlazasLibres();
+    }
 
-    /** Las plazas libres no se guardan en la BBDD: se calculan para que nunca estén desactualizadas. */
-    public int getPlazasLibres() {
-        return jugadorasDeseadas - jugadoras.size();
+    public int getPlazasLibres() { return plazasLibres; }
+
+    private void recalcularPlazasLibres() {
+        plazasLibres = jugadorasDeseadas - jugadoras.size();
     }
 
     @Override

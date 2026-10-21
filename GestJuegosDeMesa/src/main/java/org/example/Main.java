@@ -1,6 +1,7 @@
 package org.example;
 
 import org.example.services.AsociacionService;
+import org.example.services.ExportacionService;
 import org.example.services.JuegoService;
 import org.example.services.PartidaService;
 import org.example.services.SociaService;
@@ -15,6 +16,7 @@ public class Main {
     private static final SociaService sociaService = new SociaService();
     private static final JuegoService juegoService = new JuegoService();
     private static final PartidaService partidaService = new PartidaService();
+    private static final ExportacionService exportacionService = new ExportacionService();
 
     /** Una opción de menú que puede fallar. */
     private interface Accion {
@@ -46,7 +48,8 @@ public class Main {
                 case 1 -> menuSocias();
                 case 2 -> menuJuegos();
                 case 3 -> menuPartidas();
-                case 5, 6 -> System.out.println("Pendiente de implementar");
+                case 5 -> menuExportar();
+                case 6 -> System.out.println("Pendiente de implementar");
                 case 4 -> menuAsociacion();
                 case 0 -> System.out.println("¡Hasta luego!");
                 default -> System.out.println("Opción no válida");
@@ -119,6 +122,25 @@ public class Main {
                 case 5 -> ejecutar(partidaService::apuntarse);
                 case 6 -> ejecutar(partidaService::quitarJugadora);
                 case 7 -> ejecutar(partidaService::registrarGanadoras);
+                case 0 -> { }
+                default -> System.out.println("Opción no válida");
+            }
+        } while (opcion != 0);
+    }
+
+    private static void menuExportar() {
+        int opcion;
+        do {
+            opcion = elegirOpcion("Exportar datos a XML y JSON", "Volver",
+                    "Exportar socias",
+                    "Exportar juegos",
+                    "Exportar partidas",
+                    "Exportar todo");
+            switch (opcion) {
+                case 1 -> ejecutar(exportacionService::exportarSocias);
+                case 2 -> ejecutar(exportacionService::exportarJuegos);
+                case 3 -> ejecutar(exportacionService::exportarPartidas);
+                case 4 -> ejecutar(exportacionService::exportarTodo);
                 case 0 -> { }
                 default -> System.out.println("Opción no válida");
             }
