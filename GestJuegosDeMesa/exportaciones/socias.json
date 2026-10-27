@@ -1,0 +1,36 @@
+[
+  {
+    "id": 1,
+    "documento": "12345678Z",
+    "nombre": "Ane",
+    "apellidos": "Etxeberria Ruiz",
+    "telefono": "600111222",
+    "edad": 34,
+    "email": "ane@correo.com"
+  },
+  {
+    "id": 2,
+    "documento": "X1234567L",
+    "nombre": "Lucía",
+    "apellidos": "Fernández Gil",
+    "telefono": "600333444",
+    "edad": 27,
+    "email": "lucia@correo.com"
+  },
+  {
+    "id": 4,
+    "documento": "4309588F",
+    "nombre": "Miriam",
+    "apellidos": "Jun",
+    "edad": 23
+  },
+  {
+    "id": 3,
+    "documento": "PAB123456",
+    "nombre": "Marta",
+    "apellidos": "Sánchez Díaz",
+    "telefono": "600555666",
+    "edad": 41,
+    "email": "marta@correo.com"
+  }
+]

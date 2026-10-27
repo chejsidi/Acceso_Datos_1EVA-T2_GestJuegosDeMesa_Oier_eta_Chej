@@ -1,0 +1,76 @@
+[
+  {
+    "id": 4,
+    "nombre": "Azul",
+    "autores": "Michael Kiesling",
+    "descripcion": "Decora las paredes del palacio con azulejos",
+    "minJugadores": 2,
+    "maxJugadores": 4,
+    "duracion": 40,
+    "tematica": "Abstracto",
+    "tipo": "COMPETITIVO",
+    "ubicacion": "Estantería C",
+    "estado": "EN_REPARACION",
+    "propietaria": {
+      "id": 2,
+      "documento": "X1234567L",
+      "nombre": "Lucía",
+      "apellidos": "Fernández Gil",
+      "telefono": "600333444",
+      "edad": 27,
+      "email": "lucia@correo.com"
+    },
+    "fechaAlta": "2020-06-05"
+  },
+  {
+    "id": 3,
+    "nombre": "Carcassonne",
+    "autores": "Klaus-Jürgen Wrede",
+    "descripcion": "Construye ciudades y caminos con losetas",
+    "minJugadores": 2,
+    "maxJugadores": 5,
+    "duracion": 40,
+    "tematica": "Medieval",
+    "tipo": "COMPETITIVO",
+    "ubicacion": "Estantería A",
+    "estado": "PRESTADO",
+    "propietaria": {
+      "id": 1,
+      "documento": "12345678Z",
+      "nombre": "Ane",
+      "apellidos": "Etxeberria Ruiz",
+      "telefono": "600111222",
+      "edad": 34,
+      "email": "ane@correo.com"
+    },
+    "fechaAlta": "2018-01-15"
+  },
+  {
+    "id": 1,
+    "nombre": "Catan",
+    "autores": "Klaus Teuber",
+    "descripcion": "Coloniza la isla comerciando con recursos",
+    "minJugadores": 3,
+    "maxJugadores": 4,
+    "duracion": 90,
+    "tematica": "Comercio",
+    "tipo": "COMPETITIVO",
+    "ubicacion": "Estantería A",
+    "estado": "DISPONIBLE",
+    "fechaAlta": "2015-04-01"
+  },
+  {
+    "id": 2,
+    "nombre": "Pandemic",
+    "autores": "Matt Leacock",
+    "descripcion": "Salvad al mundo de cuatro enfermedades",
+    "minJugadores": 2,
+    "maxJugadores": 4,
+    "duracion": 45,
+    "tematica": "Medicina",
+    "tipo": "COOPERATIVO",
+    "ubicacion": "Estantería B",
+    "estado": "DISPONIBLE",
+    "fechaAlta": "2016-09-10"
+  }
+]

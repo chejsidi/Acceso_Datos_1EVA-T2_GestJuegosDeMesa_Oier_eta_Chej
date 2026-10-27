@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<partidas>
+  <partida>
+    <id>2</id>
+    <juego>
+      <id>2</id>
+      <nombre>Pandemic</nombre>
+      <autores>Matt Leacock</autores>
+      <descripcion>Salvad al mundo de cuatro enfermedades</descripcion>
+      <minJugadores>2</minJugadores>
+      <maxJugadores>4</maxJugadores>
+      <duracion>45</duracion>
+      <tematica>Medicina</tematica>
+      <tipo>COOPERATIVO</tipo>
+      <ubicacion>Estantería B</ubicacion>
+      <estado>DISPONIBLE</estado>
+      <fechaAlta>2016-09-10</fechaAlta>
+    </juego>
+    <fecha>2025-11-15</fecha>
+    <hora>17:30:00</hora>
+    <jugadorasDeseadas>3</jugadorasDeseadas>
+    <jugadoras>
+      <jugadora>
+        <id>4</id>
+        <socia>
+          <id>3</id>
+          <documento>PAB123456</documento>
+          <nombre>Marta</nombre>
+          <apellidos>Sánchez Díaz</apellidos>
+          <telefono>600555666</telefono>
+          <edad>41</edad>
+          <email>marta@correo.com</email>
+        </socia>
+        <ganadora>false</ganadora>
+      </jugadora>
+    </jugadoras>
+    <plazasLibres>2</plazasLibres>
+  </partida>
+  <partida>
+    <id>1</id>
+    <juego>
+      <id>1</id>
+      <nombre>Catan</nombre>
+      <autores>Klaus Teuber</autores>
+      <descripcion>Coloniza la isla comerciando con recursos</descripcion>
+      <minJugadores>3</minJugadores>
+      <maxJugadores>4</maxJugadores>
+      <duracion>90</duracion>
+      <tematica>Comercio</tematica>
+      <tipo>COMPETITIVO</tipo>
+      <ubicacion>Estantería A</ubicacion>
+      <estado>DISPONIBLE</estado>
+      <fechaAlta>2015-04-01</fechaAlta>
+    </juego>
+    <fecha>2025-10-04</fecha>
+    <hora>18:00:00</hora>
+    <jugadorasDeseadas>4</jugadorasDeseadas>
+    <jugadoras>
+      <jugadora>
+        <id>1</id>
+        <socia>
+          <id>1</id>
+          <documento>12345678Z</documento>
+          <nombre>Ane</nombre>
+          <apellidos>Etxeberria Ruiz</apellidos>
+          <telefono>600111222</telefono>
+          <edad>34</edad>
+          <email>ane@correo.com</email>
+        </socia>
+        <ganadora>true</ganadora>
+      </jugadora>
+      <jugadora>
+        <id>2</id>
+        <socia>
+          <id>2</id>
+          <documento>X1234567L</documento>
+          <nombre>Lucía</nombre>
+          <apellidos>Fernández Gil</apellidos>
+          <telefono>600333444</telefono>
+          <edad>27</edad>
+          <email>lucia@correo.com</email>
+        </socia>
+        <ganadora>false</ganadora>
+      </jugadora>
+      <jugadora>
+        <id>3</id>
+        <invitada>Irene López</invitada>
+        <ganadora>false</ganadora>
+      </jugadora>
+    </jugadoras>
+    <plazasLibres>1</plazasLibres>
+  </partida>
+</partidas>

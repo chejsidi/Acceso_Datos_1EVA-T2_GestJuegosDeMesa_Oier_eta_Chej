@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<juegos>
+  <juego>
+    <id>4</id>
+    <nombre>Azul</nombre>
+    <autores>Michael Kiesling</autores>
+    <descripcion>Decora las paredes del palacio con azulejos</descripcion>
+    <minJugadores>2</minJugadores>
+    <maxJugadores>4</maxJugadores>
+    <duracion>40</duracion>
+    <tematica>Abstracto</tematica>
+    <tipo>COMPETITIVO</tipo>
+    <ubicacion>Estantería C</ubicacion>
+    <estado>EN_REPARACION</estado>
+    <propietaria>
+      <id>2</id>
+      <documento>X1234567L</documento>
+      <nombre>Lucía</nombre>
+      <apellidos>Fernández Gil</apellidos>
+      <telefono>600333444</telefono>
+      <edad>27</edad>
+      <email>lucia@correo.com</email>
+    </propietaria>
+    <fechaAlta>2020-06-05</fechaAlta>
+  </juego>
+  <juego>
+    <id>3</id>
+    <nombre>Carcassonne</nombre>
+    <autores>Klaus-Jürgen Wrede</autores>
+    <descripcion>Construye ciudades y caminos con losetas</descripcion>
+    <minJugadores>2</minJugadores>
+    <maxJugadores>5</maxJugadores>
+    <duracion>40</duracion>
+    <tematica>Medieval</tematica>
+    <tipo>COMPETITIVO</tipo>
+    <ubicacion>Estantería A</ubicacion>
+    <estado>PRESTADO</estado>
+    <propietaria>
+      <id>1</id>
+      <documento>12345678Z</documento>
+      <nombre>Ane</nombre>
+      <apellidos>Etxeberria Ruiz</apellidos>
+      <telefono>600111222</telefono>
+      <edad>34</edad>
+      <email>ane@correo.com</email>
+    </propietaria>
+    <fechaAlta>2018-01-15</fechaAlta>
+  </juego>
+  <juego>
+    <id>1</id>
+    <nombre>Catan</nombre>
+    <autores>Klaus Teuber</autores>
+    <descripcion>Coloniza la isla comerciando con recursos</descripcion>
+    <minJugadores>3</minJugadores>
+    <maxJugadores>4</maxJugadores>
+    <duracion>90</duracion>
+    <tematica>Comercio</tematica>
+    <tipo>COMPETITIVO</tipo>
+    <ubicacion>Estantería A</ubicacion>
+    <estado>DISPONIBLE</estado>
+    <fechaAlta>2015-04-01</fechaAlta>
+  </juego>
+  <juego>
+    <id>2</id>
+    <nombre>Pandemic</nombre>
+    <autores>Matt Leacock</autores>
+    <descripcion>Salvad al mundo de cuatro enfermedades</descripcion>
+    <minJugadores>2</minJugadores>
+    <maxJugadores>4</maxJugadores>
+    <duracion>45</duracion>
+    <tematica>Medicina</tematica>
+    <tipo>COOPERATIVO</tipo>
+    <ubicacion>Estantería B</ubicacion>
+    <estado>DISPONIBLE</estado>
+    <fechaAlta>2016-09-10</fechaAlta>
+  </juego>
+</juegos>

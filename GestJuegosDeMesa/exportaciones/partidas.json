@@ -1,0 +1,92 @@
+[
+  {
+    "id": 2,
+    "juego": {
+      "id": 2,
+      "nombre": "Pandemic",
+      "autores": "Matt Leacock",
+      "descripcion": "Salvad al mundo de cuatro enfermedades",
+      "minJugadores": 2,
+      "maxJugadores": 4,
+      "duracion": 45,
+      "tematica": "Medicina",
+      "tipo": "COOPERATIVO",
+      "ubicacion": "Estantería B",
+      "estado": "DISPONIBLE",
+      "fechaAlta": "2016-09-10"
+    },
+    "fecha": "2025-11-15",
+    "hora": "17:30",
+    "jugadorasDeseadas": 3,
+    "jugadoras": [
+      {
+        "id": 4,
+        "socia": {
+          "id": 3,
+          "documento": "PAB123456",
+          "nombre": "Marta",
+          "apellidos": "Sánchez Díaz",
+          "telefono": "600555666",
+          "edad": 41,
+          "email": "marta@correo.com"
+        },
+        "ganadora": false
+      }
+    ],
+    "plazasLibres": 2
+  },
+  {
+    "id": 1,
+    "juego": {
+      "id": 1,
+      "nombre": "Catan",
+      "autores": "Klaus Teuber",
+      "descripcion": "Coloniza la isla comerciando con recursos",
+      "minJugadores": 3,
+      "maxJugadores": 4,
+      "duracion": 90,
+      "tematica": "Comercio",
+      "tipo": "COMPETITIVO",
+      "ubicacion": "Estantería A",
+      "estado": "DISPONIBLE",
+      "fechaAlta": "2015-04-01"
+    },
+    "fecha": "2025-10-04",
+    "hora": "18:00",
+    "jugadorasDeseadas": 4,
+    "jugadoras": [
+      {
+        "id": 1,
+        "socia": {
+          "id": 1,
+          "documento": "12345678Z",
+          "nombre": "Ane",
+          "apellidos": "Etxeberria Ruiz",
+          "telefono": "600111222",
+          "edad": 34,
+          "email": "ane@correo.com"
+        },
+        "ganadora": true
+      },
+      {
+        "id": 2,
+        "socia": {
+          "id": 2,
+          "documento": "X1234567L",
+          "nombre": "Lucía",
+          "apellidos": "Fernández Gil",
+          "telefono": "600333444",
+          "edad": 27,
+          "email": "lucia@correo.com"
+        },
+        "ganadora": false
+      },
+      {
+        "id": 3,
+        "invitada": "Irene López",
+        "ganadora": false
+      }
+    ],
+    "plazasLibres": 1
+  }
+]

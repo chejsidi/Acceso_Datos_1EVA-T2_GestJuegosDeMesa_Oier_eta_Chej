@@ -9,7 +9,11 @@ import org.example.services.SociaService;
 import org.example.utils.DatabaseConnection;
 import org.example.utils.Lector;
 
+import java.io.IOException;
 import java.sql.SQLException;
+import java.sql.SQLIntegrityConstraintViolationException;
+import java.sql.SQLNonTransientConnectionException;
+import java.sql.SQLTransientConnectionException;
 
 public class Main {
     private static final Lector lector = new Lector();
@@ -20,7 +24,7 @@ public class Main {
     private static final ExportacionService exportacionService = new ExportacionService();
     private static final MetadatosService metadatosService = new MetadatosService();
 
-    /** Una opción de menú que puede fallar. */
+    // Una opción de menú que puede fallar
     private interface Accion {
         void ejecutar() throws Exception;
     }
@@ -183,13 +187,25 @@ public class Main {
     //  UTILIDADES
     // =====================================================
 
-    /** Ejecuta una opción y, si falla, muestra el error y vuelve al menú sin cerrar el programa. */
+    /**
+     * Ejecuta una opción y, si falla, muestra un mensaje según el tipo de error y vuelve al menú
+     * sin cerrar el programa. Así ninguna excepción queda sin controlar.
+     */
     private static void ejecutar(Accion accion) {
         try {
             accion.ejecutar();
+        } catch (SQLIntegrityConstraintViolationException e) {
+            System.out.println("ERROR: la operación no respeta las reglas de la base de datos "
+                    + "(dato repetido o relacionado con otros registros). Detalle: " + e.getMessage());
+        } catch (SQLNonTransientConnectionException | SQLTransientConnectionException e) {
+            System.out.println("ERROR: se ha perdido la conexión con la base de datos. "
+                    + "Comprueba que el servidor está arrancado (docker compose up -d) y vuelve a intentarlo.");
         } catch (SQLException e) {
             System.out.println("ERROR de base de datos: " + e.getMessage());
+        } catch (IOException e) {
+            System.out.println("ERROR al escribir el fichero: " + e.getMessage());
         } catch (Exception e) {
+            // Errores de validación lanzados por los services, con su mensaje para el usuario
             System.out.println("ERROR: " + e.getMessage());
         }
     }

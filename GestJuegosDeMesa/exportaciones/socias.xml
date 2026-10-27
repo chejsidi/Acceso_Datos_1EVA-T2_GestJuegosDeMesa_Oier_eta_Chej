@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<socias>
+  <socia>
+    <id>1</id>
+    <documento>12345678Z</documento>
+    <nombre>Ane</nombre>
+    <apellidos>Etxeberria Ruiz</apellidos>
+    <telefono>600111222</telefono>
+    <edad>34</edad>
+    <email>ane@correo.com</email>
+  </socia>
+  <socia>
+    <id>2</id>
+    <documento>X1234567L</documento>
+    <nombre>Lucía</nombre>
+    <apellidos>Fernández Gil</apellidos>
+    <telefono>600333444</telefono>
+    <edad>27</edad>
+    <email>lucia@correo.com</email>
+  </socia>
+  <socia>
+    <id>4</id>
+    <documento>4309588F</documento>
+    <nombre>Miriam</nombre>
+    <apellidos>Jun</apellidos>
+    <edad>23</edad>
+  </socia>
+  <socia>
+    <id>3</id>
+    <documento>PAB123456</documento>
+    <nombre>Marta</nombre>
+    <apellidos>Sánchez Díaz</apellidos>
+    <telefono>600555666</telefono>
+    <edad>41</edad>
+    <email>marta@correo.com</email>
+  </socia>
+</socias>

@@ -4,8 +4,9 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-/** Coneccxión única a la base de datos ( Singleton). */
+/** Conexión única a la base de datos (patrón Singleton). */
 public class DatabaseConnection {
+    // Si MariaDB está en otra máquina, cambia "localhost" por su IP
     private static final String URL = "jdbc:mariadb://localhost:3306/practica";
     private static final String USER = "root";
     private static final String PASSWORD = "root";
@@ -27,7 +28,9 @@ public class DatabaseConnection {
     }
 
     public static DatabaseConnection getInstance() throws SQLException {
-        if (instance == null || instance.getConnection().isClosed()) {
+        // isValid comprueba que el servidor sigue respondiendo (espera como mucho 2 segundos).
+        // Si se cayó y ha vuelto, se crea una conexión nueva en vez de seguir con la rota.
+        if (instance == null || !instance.getConnection().isValid(2)) {
             instance = new DatabaseConnection();
         }
         return instance;
